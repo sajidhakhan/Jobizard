@@ -1,0 +1,69 @@
+<div class="container-fluid">
+    <mat-card style="background-image: linear-gradient(to right, #6E2586,#B11784); margin-top: 0.5rem; margin-left:0.5rem; margin-right: 0.5rem; text-align: center;"><h1 style="font-size: xx-large; font-weight: bold; color: white;">{{firstname}}'s Profile</h1></mat-card>
+    <div class="row">
+        <div class="col-xl-4">
+            <div style="display: flex; margin-top: 4%; align-items: center; justify-content: center;">
+                <img src={{url}} style="height: 13.5vw;"/>
+                <div style="display: block; margin-left: 2vw; line-height: 3rem; margin-bottom: 4%;">
+                    <h1 style="font-weight: bolder;  color: #6E2586;">{{firstname}} {{lastname}}</h1>
+                    <div style="font-size: 2rem;">
+                        <span>{{gender}}</span>
+                        <span style="display: block;">{{dob | date:'dd-MM-yyyy'}}</span>
+                        <span *ngIf="!(email == null)" style="display: block;">{{email}}</span>
+                        <span style="display: block;">{{mobile}}</span>
+                        <span style="display: block;">{{address.city}}, {{address.state}}</span>
+                    </div>
+                </div>
+                </div>
+                <hr>
+            <mat-card style="text-align: center; border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c; overflow: auto; height: fit-content; max-height: 20vh;">
+                <h1 style="font-weight: bolder; color: #B11784; text-align: center;"><mat-icon>gps_fixed</mat-icon> Objective</h1>
+                <span style="font-size: 2rem;">{{objective}}</span>
+            </mat-card>
+        
+            <mat-card *ngIf="academicCertification!=null" style="margin-top: 4%; font-size: 2rem;  overflow: auto; height: 22vh; border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c;">
+                <h1 style="font-weight: bolder; color: #B11784; text-align: center;">	<mat-icon> local_library</mat-icon> Academic Certification</h1>
+                <ul style="list-style: none; margin-bottom: 3%; text-align: center;">
+                    <li *ngFor="let certificate of academicCertification">{{certificate}}</li>
+                </ul>
+            </mat-card>
+        </div>
+        <div class="col-xl-4" style="height: 100%; font-size: 2rem;  line-height: 3rem;">
+            <mat-card style="border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c; margin-top: 4%;  overflow: auto; height: fit-content; min-height: 28vh; max-height: 30vh;">
+                <h1 style="font-weight: bolder; text-align: center; color: #B11784; display: block;"><mat-icon>book</mat-icon> Skills</h1>
+                <div>
+                    <ul style="columns: 2; list-style: none; line-height: 3rem; text-align: center;"> 
+                        <li *ngFor = "let skill of skills"><mat-icon *ngIf="(skill.isVerified || skill.verified)" style="color: green;">verified_user</mat-icon>{{skill.skillName}}</li>
+                    </ul>
+                </div>
+            </mat-card>
+           
+            <mat-card style="border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c; margin-top: 4%; overflow: auto; height: fit-content; min-height: 28vh; max-height: 30vh;">
+                <h1 style="font-weight: bolder; color: #B11784; text-align: center;"><mat-icon>whatshot</mat-icon> Achievements</h1>
+                    <ol style="list-style: none; text-align: center;">
+                        <li *ngFor = "let achievement of achievements">{{achievement}}</li>
+                    </ol>
+            </mat-card>
+            <mat-card style="text-align: center; border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c; margin-top: 4%;" *ngIf="experience">
+                <h1 style="font-weight: bolder; color: #B11784; text-align: center;"><mat-icon>business_center</mat-icon> Work Experience</h1>
+                <span style="font-size: 2rem;">{{experience}}</span>
+            </mat-card>
+            
+           
+        </div>
+        <div class="col-xl-4" style="font-size: 2rem;  line-height: 3rem;">
+            <mat-card style="display: block; overflow: auto; height: fit-content; min-height: 53vh; max-height: 75vh; border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c; margin-top: 4%;">
+                <h1 style="font-weight: bolder; text-align: center; color: #B11784;"><mat-icon>school</mat-icon> Educational Details</h1>
+                <ol *ngFor="let educational of educational" style="list-style: none;">
+                    <li><span style="font-weight: bold;">Education: </span>{{educational.courses}}</li>
+                    <ul>
+                        <li *ngIf="(educational.courseType)">Course Type: {{educational.courseType}} </li>
+                        <li *ngIf="(educational.streamOrField)">{{educational.streamOrField}}</li>
+                        <li>{{educational.percentageOrCgpa}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{educational.passingOutYear | date:'yyyy'}}</li>
+                     
+                    </ul>
+                </ol>
+            </mat-card>
+        </div>
+    </div>
+</div>

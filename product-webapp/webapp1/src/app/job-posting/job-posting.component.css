@@ -1,0 +1,63 @@
+.bg{
+    /* background-image: url('bg.png');
+    background-image: linear-gradient(to right, #6E2586,#B11784);
+    background-clip: border-box;
+    border: 2px; */
+    border: 7px solid #4E1B5F;
+    /* border-color: -moz-linear-gradient(top, #6E2586,#B11784); */
+}
+.finish{
+   display:none;
+}
+.text{
+  background-image: linear-gradient( #6E2586,#B11784);
+  background-clip: text;
+  color: transparent;
+}
+.text1{
+    color: #4E1B5F;
+}
+.text2{
+    color: #6E2586;
+}
+.companyForm{
+    pointer-events: all;
+    
+
+}
+p{
+    font-size: 150%;
+}
+.image1{
+    /* background-image: url('Man-Business-Cartoon-Businessman-Business-Man-1351317.png'); */
+    /* background-size: cover; */
+    /* /* float: right; */
+    display: inline-block; 
+    width: 40%;
+    
+    
+}
+.requirements{
+    width: 50%;
+}
+
+@media only screen and (max-width: 400px) {
+   
+    .image1 {
+       display: none;
+    }
+    .company{
+        font-size: 120%;
+    }
+    p{
+        font-size: 100%;
+        line-height: 130%;
+    }
+    .requirements{
+        width: 100%;
+    }
+    .finish{
+        display:none;
+        line-height: 120%;
+     }
+  }

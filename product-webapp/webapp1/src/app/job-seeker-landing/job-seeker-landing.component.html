@@ -1,0 +1,266 @@
+<body>
+  <div class="notify" style="text-align: center;">
+    <button class="mobile" style=" " *ngIf="profileProgress<100" mat-button routerLink="/navbar/jobseekerprofile">Profile</button>
+    <button class="mobile" style=" width: 30%;" *ngIf="profileProgress==100" mat-button routerLink="/navbar/jobseekerprofile">My Profile</button>
+    <button class="mobile" style=" width: 30%;" *ngIf="notVerifiedSkills.length!=0" mat-button (click)="openProfile()">Take test</button>
+    <span style="float: right; margin-top: 3%; margin-right: 3%; ">
+    <a style="margin-right: 10%; color: white; font-size: 200%; text-decoration: underline;" (click)="openDialog1()">Post</a>
+    <a style="color: white; font-size: 200%; text-decoration: underline;"  (click)="openDialog2()">Blog</a></span>
+    
+    </div>
+<div class="box">
+
+<div class="row">
+  <div #profile class="profile-box col-lg-3 col-sm-12">
+  <div class="profile-container">
+      <div class="profile">
+        <h1 style="color: white; text-align: center; font-size: 200%; font-weight: 700;">Welcome {{jobSeeker.firstName}}</h1>
+          <mat-card class="card">
+              <mat-card-content >
+                <div style="text-align: center;">
+                
+                <img src="{{jobSeeker.jobSeekerImage}}" width="30%">
+                <h2 style="margin-bottom: 0;">{{jobSeeker.firstName}} {{jobSeeker.lastName}}</h2>
+               <br>
+                <p style="font-size: 130%;">
+                  Hard Worker with smart mind
+                </p>
+              </div>
+                <div class="updateProfile" *ngIf="profileProgress<100">
+                <p style="font-size: 130%;" *ngIf="!jobSeeker.progress">Completed 2% of your profile</p>
+                <p style="font-size: 130%;" *ngIf="jobSeeker.progress && jobSeeker.progress>0">Completed {{jobSeeker.progress}}% of your profile</p>
+                <mat-progress-bar mode="determinate" *ngIf="!jobSeeker.progress" value=2></mat-progress-bar>
+                <mat-progress-bar mode="determinate" *ngIf="jobSeeker.progress && jobSeeker.progress>0" [value]=jobSeeker.progress></mat-progress-bar>
+                <!-- <button class="update" mat-button >Update Profile</button>  --><br>
+                <div class="role" *ngIf="jobSeeker.progress<100" style="cursor: pointer;" routerLink="/navbar/update-user">
+                  <div class="block"></div>
+                  <p class="updateText">Update Profile</p>
+              </div>
+              </div>
+              <div class="myProfile" *ngIf="jobSeeker.progress==100" style="text-align: center;">
+                  <!-- <p class="getReady">Get ready for the battle Warrior</p> -->
+                  <button class="myProfileButton" mat-button routerLink="/navbar/jobseekerprofile">My Profile</button>
+              </div>
+              </mat-card-content>
+            </mat-card>
+            <button class="button1" mat-button (change)="getPosts()" (click)="openDialog1()">Add Post</button>
+            <button class="button2" mat-button (change)="getPosts()" (click)="openDialog2()">Add Blog</button>
+          
+      </div>
+  </div> 
+  </div>
+
+
+  <div class="skill col-lg-4 col-sm-12">
+    <div class="skill-container" style="background-color: aquamarine;">
+      <div class="profile">
+        <h1 class="takeTest1" style="color: white; text-align: center; " *ngIf="notVerifiedSkills.length!=0">Take test to get recruited...!</h1>
+          <mat-card class="card" style="margin-top: 5%;">
+              <mat-card-content >
+                <div *ngIf="notVerifiedSkills.length!=0">
+                <h2 style="color:#4E1B5F ; margin: 0;"> Skills to be verified :</h2>
+                <mat-card style="margin-bottom: 3px; cursor: pointer;" *ngFor="let unverified of notVerifiedSkills" (click)="openDialog(); getTestName(unverified)">
+                  <p style="font-size: 130%; ">{{unverified}}<mat-icon style=" margin-left:1%" color="accent"> announcement </mat-icon>
+                  <span  class="takeTest2">Take test</span></p>
+                  </mat-card>
+            
+              </div>
+               <br>
+                <div>
+                  <h2 style="color:#4E1B5F ;">Verified Skills :</h2>
+
+                  <div *ngFor="let verified of verifiedSkills">
+                    <span style="font-size: 130%; ">{{verified.name}} &nbsp; </span>
+              
+                  </div>
+
+                  <div *ngIf="notVerifiedSkills.length==0">
+                  <h1 class="warriors" style="color: #4E1B5F; text-align: center; font-weight: 600;" >Warriors are not born,
+                  <br>They are made...
+                  </h1>
+                  <button class="myProfileButton"  style="margin-left: 20%;" mat-button routerLink="/navbar/learning">Learn Courses</button>
+                  </div>
+               
+                </div>
+              </mat-card-content>
+            </mat-card>
+       
+      </div>
+  </div>
+  </div>
+
+<!-- -----------------------------------------------  Post  --------------------------------->
+
+
+  <div class="post-box col-lg-5 col-sm-12">
+      <div class="post" *ngFor="let post of allPost[0]">
+        <mat-card class="card1" *ngIf="post.postImage!=null" style="width: 150%; background-color: whitesmoke;">
+          <mat-card-header>
+            <mat-card-title style="padding-bottom: 20%;">{{post.user.userName}}</mat-card-title>
+          </mat-card-header>
+          <!-- <hr> -->
+          <mat-card-content *ngIf="post.postImage!=null">
+            <img mat-card-image src="{{post.postImage.postImage}}" width="50%"  >
+            <!-- <hr> -->
+            <p>
+            {{post.postImage.description}}
+            </p>
+          </mat-card-content>
+       
+          <mat-card-actions *ngIf="post.postImage!=null">
+            <span class="" style="width: 5%;" >
+            <button class="like like{{post.postId}}" style="margin-right: 1%; padding: 0; border: none; background-color: white;" (click)="addLike(post);"   ><mat-icon class="icon icon{{post.postId}}" >thumb_up</mat-icon></button>
+            <span style=" margin: 0; padding: 0; font-size: 125%;" *ngIf="post.postImage.like.likeCount>0 ">{{post.postImage.like.likeCount}}&nbsp; like</span>
+            <!-- <span style=" margin: 0; padding: 0; font-size: 125%;" *ngIf="post.postImage.like.likeCount>0 && like!=0">{{like}}&nbsp; like</span> -->
+            </span>
+            <span style="margin-left: 4%;">
+            <button style="padding: 0; margin: 0;" mat-button (click)="getAllComments(post)">View All Comments</button>
+            </span>
+            <div class="comments comments{{post.postId}}" style="margin-top: 1%;">
+            <div *ngFor="let comment of post.postImage.reviews">
+              <p style="font-size: 150%;">{{comment.reviewUserName}}&nbsp;:&nbsp;{{comment.review}}</p>
+            </div></div>
+            <div class="row">
+            <!-- <span style=" font-size: 150%; margin-top: 8%;">Add a comment</span> -->
+            <div class="col-lg-10 col-sm-7 input"  style="display: inline-block;  ">
+              <!-- <input style="font-size: 120%;" matInput #comment> -->
+              <form class="example-form"  >
+                <mat-form-field   appearance="fill" style="width: 100%;">
+                  <!-- <mat-label>Favorite food</mat-label> -->
+                  <input style="font-size: 120%;" matInput placeholder="Add Comment" #comment>
+                </mat-form-field>
+                </form>
+              </div>
+                <div class="col-sm-1 col-lg-1" style="padding: 0; display: inline-block; width: fit-content;"><button mat-button  (click)="sendReview(comment.value,post)" style="padding:0"><mat-icon [ngStyle]="{'font-size':'200%'}" >send</mat-icon></button></div>
+       
+            </div>
+          </mat-card-actions>
+        
+
+<!-- -----------------------------------------------------------Blog----------------------------------------- -->
+
+        </mat-card>
+        <mat-card class="card1" *ngIf="post.postBlog!=null" style="width: 150%; background-color: whitesmoke;">
+          <mat-card-header>
+            <mat-card-title>{{post.user.userName}}</mat-card-title>
+          </mat-card-header>
+          <!-- <hr> -->
+           <mat-card-content *ngIf="post.postBlog!=null">
+            <h2>{{post.postBlog.title}}</h2>
+            <p>{{post.postBlog.postBlog}}</p>
+            <!-- <hr> -->
+            <p>
+            {{post.postBlog.description}}
+            </p>
+          </mat-card-content>
+         
+          <mat-card-actions >
+            <span class="like{{post.postId}}" style="width: 5%;" >
+              <button class="like " style="margin-right: 1%; padding: 0; border: none; background-color: white;" (click)="addLike(post);" ><mat-icon class="icon icon{{post.postId}}" >thumb_up</mat-icon></button>
+              <span style=" margin: 0; padding: 0; font-size: 125%;" *ngIf="post.postBlog.like.likeCount>0 ">{{post.postBlog.like.likeCount}}&nbsp; like</span>
+              <!-- <span style=" margin: 0; padding: 0; font-size: 125%;" *ngIf="post.postImage.like.likeCount>0 && like!=0">{{like}}&nbsp; like</span> -->
+              </span>
+              <span style="margin-left: 4%;">
+              <button style="padding: 0; margin: 0;" mat-button (click)="getAllComments(post)">View All Comments</button>
+              </span> 
+            <div class="comments comments{{post.postId}}" style="margin-top: 1%;">
+            <div *ngFor="let comment1 of post.postBlog.reviews">
+              <p style="font-size: 150%;">{{comment1.reviewUserName}}&nbsp;:&nbsp;{{comment1.review}}</p>
+            </div></div>
+            <!-- <div>
+            <span style=" font-size: 150%; margin-top: 8%;">Add a comment</span>
+            <span style="margin-left: 2%;"><input style="font-size: 120%;" matInput #comment >
+            <span ><button mat-button (click)="sendReview(comment.value,post)" (change)="getPosts()"><mat-icon [ngStyle]="{'font-size':'1.5vw'}" >send</mat-icon></button></span>
+        </span>
+            </div> -->
+            <div class="row">
+              <!-- <span style=" font-size: 150%; margin-top: 8%;">Add a comment</span> -->
+              <div class="col-lg-10 col-sm-7 input"  style="display: inline-block;  ">
+                <!-- <input style="font-size: 120%;" matInput #comment> -->
+                <form class="example-form"  >
+                  <mat-form-field   appearance="fill" style="width: 100%;">
+                    <!-- <mat-label>Favorite food</mat-label> -->
+                    <input style="font-size: 120%;" matInput placeholder="Add Comment" #comment>
+                  </mat-form-field>
+                  </form>
+                </div>
+                  <div class="col-sm-1 col-lg-1" style="padding: 0; display: inline-block; width: fit-content;"><button mat-button  (click)="sendReview(comment.value,post)" style="padding:0"><mat-icon [ngStyle]="{'font-size':'200%'}" >send</mat-icon></button></div>
+         
+              </div>
+          </mat-card-actions>
+        
+        </mat-card>
+             
+      </div>
+      </div>
+
+      <!-- ---------------------------------------------------------------------------Skills--------------------------------- -->
+
+<div class="skill1 col-4">
+    <div class="skill-container" style="background-color: aquamarine;">
+      <div class="profile">
+        <h1 class="takeTest1" style="color: white; text-align: center; " *ngIf="notVerifiedSkills.length!=0">Take test to get recruited...!</h1>
+          <mat-card class="card" style="margin-top: 5%;">
+              <mat-card-content >
+                <div *ngIf="notVerifiedSkills.length!=0">
+                <h2 style="color:#4E1B5F ; margin: 0;"> Skills to be verified :</h2>
+                <mat-card style="margin-bottom: 3px; cursor: pointer;" *ngFor="let unverified of notVerifiedSkills" (click)="openDialog(); getTestName(unverified)">
+                  <p style="font-size: 130%; ">{{unverified}}<mat-icon style=" margin-left:1%" color="accent"> announcement </mat-icon>
+                  <span  class="takeTest2">Take test</span></p>
+                  </mat-card>
+          
+              </div>
+               <br>
+                <div>
+                  <h2 style="color:#4E1B5F ;">Verified Skills :</h2>
+
+                  <div *ngFor="let verified of verifiedSkills">
+                    <p style="font-size: 130%; ">{{verified.name}}<img style="float: right;" src="{{verified.logo}}" width="10%">
+
+                    </p>
+                  </div>
+
+                  <div *ngIf="notVerifiedSkills.length==0">
+                  <h1 class="warriors" style="color: #4E1B5F; text-align: center; font-weight: 600;" >Warriors are not born,
+                  <br>They are made...
+                  </h1>
+                  <button class="myProfileButton" style="margin-left: 20%;" mat-button routerLink="/navbar/learning">Learn Courses</button>
+                  </div>
+               
+                </div>
+              </mat-card-content>
+            </mat-card>
+       
+            <mat-card class="jobizone" routerLink="/navbar/skills">Today, more than ever the workforce needs to reevaluate their skills. Check what is the current demand for your skill</mat-card>
+            <mat-card class="jobizone" routerLink="/navbar/salary">Check how salary in your role changes with experience</mat-card>
+            <mat-card class="jobizone" routerLink="/navbar/technews">Your daily dose of technology news!!! Be up-to-date with all the current news about tech</mat-card>
+            <mat-card class="jobizone" routerLink="/navbar/businessnews">All your business related headlines right here!!!</mat-card>
+      </div>
+  </div>
+  </div>
+
+
+</div>
+</div>
+</body>
+
+<!-- chatbot -->
+
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+
+<df-messenger
+  intent="WELCOME"
+  chat-title="Jobby"
+  agent-id="d32d70bb-b930-40d0-9612-a75897f934c2"
+  language-code="en"
+></df-messenger>
+<style>
+    df-messenger {
+     --df-messenger-bot-message: #878fac;
+     --df-messenger-button-titlebar-color: #6E2586;
+     --df-messenger-chat-background-color: #fafafa;
+     --df-messenger-font-color: white;
+     --df-messenger-send-icon: #878fac;
+     --df-messenger-user-message: #479b3d;
+    }
+  </style>  

@@ -1,0 +1,418 @@
+/* 
+body{
+
+ justify-content: center;
+ padding: 0%;
+ margin: 2%;
+}
+.cv-template {
+  display: flex;
+  justify-content: space-around;
+  height: 160%;
+  margin-left: 10%;
+  width: 80%;
+  color: rgb(83, 83, 83);
+  font-family: 'Josefin Sans', sans-serif;
+}
+.contact-details{
+    text-align: center;
+
+}
+.contact-header{
+    text-align: left;
+    padding: 3%;
+    margin: 2%;
+    text-align: center;
+   
+}
+.mat-card-avatar {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
+.cv-left-side-content{
+    background-color: rgb(238, 224, 226);
+    width: 30%;
+   
+}
+.cv-left-side-header {
+  text-align: center;
+  padding: 5%;
+}
+.cv-left-side-content {
+  margin: 0%;
+  padding: 0%;
+}
+mat-icon {
+    color: rgb(108, 105, 105);
+    
+}
+.num-header{
+    text-align: left;
+}
+.location header{
+    text-align: left;
+    margin-left: 10%;
+    padding-bottom: 15%;
+}
+.name-header{
+    text-align: center;
+   
+}
+.name-content{
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 8%;
+    
+}
+.role-content{
+  text-align: center;
+  text-transform: uppercase;
+}
+.name-header{
+    background-color: rgb(234, 234, 234);
+    height: 12%;
+}
+
+.cv-right-side-content {
+  width: 75%;
+}
+.content-objective{
+    text-align: left;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 200%;
+    color: rgb(108, 105, 105);
+    font-weight: bold;
+    padding: 2%;
+    margin: 3%;
+}
+.Exp-header{
+   
+    /* border-color: rgb(169, 166, 166)  rgb(169, 166, 166)  rgb(169, 166, 166)  rgb(169, 166, 166) ; */
+/* } */
+/* .exp{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 350%;
+  color: rgb(83, 83, 83);
+  font-weight: bold;
+  text-align: center;
+  margin: 20px;
+  background-color:rgb(238, 224, 226) ;
+  text-transform: uppercase;
+}
+.exp-content{
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0px;
+}
+.exp-details{
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 100%;
+  color: rgb(83, 83, 83);
+  padding: 2.5%;
+  margin:0%;
+}
+li{
+  text-align:left;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 150%;
+}
+.edu{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 350%;
+  color: rgb(83, 83, 83);
+  font-weight: bold;
+  text-align: center;
+  margin: 20px;
+  background-color:rgb(238, 224, 226) ;
+  text-transform: uppercase;
+}
+.ed-details{
+  text-align: left;
+  margin-left: 5%;
+}
+.skills-header-container{
+  padding: 8%;
+  margin: 4%;
+  text-align: center;
+  border-style: inset;
+  border-color: rgb(58, 58, 58) transparent transparent transparent;
+}
+.skills-container {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+.skills{
+  margin: 3%;
+  padding-bottom:5%;
+}
+.interests-container{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 350%;
+  color: rgb(83, 83, 83);
+  font-weight: bold;
+  text-align: center;
+  margin: 20px;
+  background-color:rgb(238, 224, 226);
+  text-transform: uppercase;
+}
+.interest-chips{
+  padding: 3%;
+  margin: 2%;
+}
+.lang-container{
+  padding: 8%;
+  margin: 4%;
+  text-align: center;
+  border-style: inset;
+  border-color: rgb(58, 58, 58) transparent transparent transparent;
+}
+.lang-chips{
+  padding: 3%;
+  margin-top: 3%;
+}
+
+.cv-body-side-content-edu {
+  margin-top: 5%;
+  border-style: inset;
+  border-color: rgb(169, 166, 166) transparent transparent transparent;
+  padding-top: 2.5%;
+}
+
+.cv-body-side-content-edu-header {
+  text-transform: uppercase;
+}
+.cv-body-main-content {
+  width: 65%;
+  background: whitesmoke;
+  padding: 2.5%;
+  margin: 0%;
+}
+
+.main-career-objective {
+  margin-bottom: 15%;
+ 
+  text-align: left;
+  padding-top: 5%;
+}
+
+.work-experience-container {
+  margin-top: 8%;
+  margin-bottom: 8%;
+}
+
+.work-experience-header-container {
+  border-style: inset;
+  border-color: rgb(169, 166, 166) transparent rgb(169, 166, 166) transparent;
+  padding-top: 2%;
+}
+
+.skills-container {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.skills-header-container {
+  padding-top: 2%;
+  border-style: inset;
+  border-color: rgb(169, 166, 166) transparent rgb(169, 166, 166) transparent;
+}
+
+h5 {
+  margin: 5% 0% 0% 0%;
+  padding: 0%;
+}
+
+.button {
+  background-image: linear-gradient(to right, rgb(110, 37, 134), rgb(177, 23, 132));
+  color: azure;
+  position: absolute;
+
+}  */
+.cv-body-container {
+  margin: 5%;
+  border-style: inset;
+  font-family: 'Mukta', sans-serif;
+  letter-spacing: 2px;
+}
+.cv-body-header-container {
+  display: flex;
+  width: 100%;
+  background-color: rgb(72, 73, 81);
+  text-transform: uppercase;
+}
+.cv-avatar-container {
+  margin-left: 5%;
+  margin-top: 3%;
+  text-align: center;
+  background-color: rgb(247, 234, 229);
+  width: 25%;
+}
+
+.mat-card-avatar {
+  padding: 5%;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  border-style: black;
+}
+.cv-header-container {
+  color: azure;
+  padding: 10%;
+  width: 75%;
+}
+.cv-header-designation {
+  text-align: center;
+}
+
+.cv-header-name {
+  text-align: center;
+}
+.cv-content-container {
+  display: flex;
+  background-color: rgb(255, 255, 255);
+}
+.cv-content-container-left {
+  margin-left: 5%;
+  width: 24.3%;
+  padding: 2%;
+  background-color: rgb(246, 235, 229);
+}
+.cv-content-left {
+}
+.cv-content-contact {
+  padding: 5px;
+  margin: 5px;
+  border-bottom-style: solid;
+}
+.cv-content-contact-header-cnotainer {
+  padding-top: 5%;
+  text-align: center;
+  text-transform: uppercase; 
+  font-size: 140%;
+  font-weight: 600;
+}
+.cv-contact-number {
+  
+}
+.cv-email {
+  
+}
+.cv-city-state {
+  
+}
+.cv-links {
+ 
+}
+
+.cv-content-skills {
+  border-bottom-style: solid;
+}
+.cv-content-skills-header-cnotainer {
+  padding-top: 5%;
+  text-align: center;
+  text-transform: uppercase; 
+  font-size: 140%;
+  font-weight: 600;
+}
+.cv-education-skills-details {
+  padding: 5px;
+  margin: 5px;
+}
+.cv-content-experience {
+  padding: 5px;
+  margin: 5px;
+}
+.cv-content-experience-header-cnotainer {
+  padding-top: 5%;
+  text-align: center;
+  text-transform: uppercase; 
+  font-size: 140%;
+  font-weight: 600;
+}
+.cv-education-experience-details {
+}
+li {
+}
+.cv-content-container-right {
+  width: 75%;
+}
+.cv-content-right {
+  padding: 4%;
+  padding-left: 1%;
+}
+.cv-content-career-objective {
+}
+.cv-content-career-objective-header-cnotainer {
+  text-align: center;
+  padding: 2%;
+  background-color: rgb(244, 235, 229);
+  text-transform: uppercase; 
+  font-size: 180%;
+  font-weight: 600;
+}
+.career-objective {
+}
+.cv-content-education {
+}
+.cv-content-education-header-cnotainer {
+  text-align: center;
+  padding: 2%;
+  background-color: rgb(244, 235, 229);
+  text-transform: uppercase; 
+  font-size: 180%;
+  font-weight: 600;
+}
+.cv-education-course-details {
+  display: flex;
+ justify-content: left;
+}
+.degree {
+}
+.stream {
+}
+.university-name {
+}
+.year-of-duration {
+}
+.cv-content-academics {
+}
+.cv-content-academics-header-cnotainer {
+  text-align: center;
+  padding: 2%;
+  background-color: rgb(244, 235, 229);
+  text-transform: uppercase; 
+  font-size: 180%;
+  font-weight: 600;
+}
+.cv-education-academics-details {
+}
+.cv-content-achivements {
+}
+.cv-content-achivements-header-cnotainer {
+  text-align: center;
+  padding: 2%;
+  background-color: rgb(244, 235, 229);
+  text-transform: uppercase; 
+  font-size: 180%;
+  font-weight: 600;
+}
+.cv-education-achivements-details {
+}
+.cv-content-job {
+}
+.cv-content-job-header-cnotainer {
+  text-align: center;
+  padding: 2%;
+  background-color: rgb(244, 235, 229);
+  text-transform: uppercase; 
+  font-size: 180%;
+  font-weight: 600;
+}
+.cv-education-job-details {
+}
+.content-container {
+  display: flex;
+  justify-content: space-evenly;
+}
